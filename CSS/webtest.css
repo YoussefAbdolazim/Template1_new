@@ -1,0 +1,822 @@
+/* General commands */
+
+/*since the body by default is taking margine equal 8px and to make the content take the whole page size let the margine equlas null 
+and to make the padding push the div_ or etc _ content towards the inside and the W & H of the div remain the same use box sizing*/
+body{ 
+    margin: 0;
+    box-sizing: border-box;
+}
+.spacer{
+    height: 10px;
+    width: 100%;
+    background-color: black;
+}
+.overlay{
+    background-color: rgba(0, 0, 0, 0.55);  
+    position: absolute; /*remember that when the element is absolute it is out of the page and in a need of W & H to be processed*/
+    width: 100%; /*100% to take the whole size of its parent which is the .home-div*/
+    height: 100%;
+}
+.container{ /*here we can take only 80% of the page width*/
+    width: 80%;
+    margin: auto;
+}
+/* Header Sec */
+.header{
+    margin: 120px 0;
+    text-align: center;
+}
+ .header-title{
+    font-size: 30px;
+    color: black;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+ .header-line{
+    background-color: #6195ff;
+    width: 5%;
+    height: 3px;
+    bottom: 10px;
+    border-radius: 3px;
+    margin: auto;
+}
+.clear{
+    clear: both;
+}
+/* ltr-effect */
+.ltr-eff{
+    position: relative; /*to make the slider background out of the page */
+}
+.ltr-eff::after{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    top: 0; /*to be within its parent borders*/
+    left: 0;
+    transition: width 0.65s; 
+    z-index: -1; /*to make the content arises*/
+}
+.ltr-eff:hover::after{
+    width: 100%;
+}
+/* tb-effect */
+.tb-eff{
+    position: relative; /*to make the slider background out of the page */
+}
+.tb-eff::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0%;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0; /*to be within its parent borders*/
+    left: 0;
+    transition: height 0.65s; 
+    z-index: -1; /*to make the content arises*/
+}
+.tb-eff:hover::after{
+    height:  100%;
+}
+
+/* ####################################################### */
+/* bar sec */
+.head{
+    /* background: rosybrown; */
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    margin-top: -10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    height: 62px;
+}
+.head .logo{
+    width: 27%;
+    float: left;
+    padding-top: 15px ;
+}
+.head .logo img{
+    width: 35%; /*it will take 20 percentage of its parent width which is the .logo*/
+}
+.head .nav{
+    width: 65%;
+    float: left;
+    list-style: none;
+    text-align: right;
+}
+.head .nav > li{
+    display: inline-block;
+}
+.head .nav > li >a{
+    text-decoration: none;
+    color: white;
+    display: block; /*Since the a is inline element by default and it will not accept 
+    padding from all direction*/
+    padding: 15px; /*that is better from applying padding on li
+    since now you can click on the home or services or etc by just
+    clicking near to the word and no need to make the pointer on
+    the word itself*/
+}
+.head .nav >li >a.active::after{
+    content: "";
+    display: block; /*34an l 5at ykon ta7to*/
+    width: 100%; /*34an l 5at ya5od width l parent a kolo*/
+    height: 3px;
+    background-color: #6195ff;
+    margin-top: 2px;
+    }
+.head .nav >li >a::after{
+    content: "";
+    display: block; /*34an l 5at ykon ta7to*/
+    width: 0; /*34an l 5at ya5od width l parent kolo*/
+    height: 3px;
+    background-color: #6195ff;  
+    transition: width 0.7s; /*to make the line arises slowly */
+    margin-top: 2px;
+}
+.head .nav >li >a:hover::after{
+    width: 100%;
+}
+.dropdown{
+position: relative;
+}
+.dropdown-menu{
+    position: absolute;
+    background: #6195ff;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    left: -70%;
+    top: 85%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 3s ;
+    border-radius: 5px;
+}
+.dropdown-menu li{
+    list-style: none;
+    text-align: left;
+    width: 100%;
+}
+.dropdown-menu a{
+    display: block; /*to take the wjhole width of the parent .dropdown-menu*/
+    padding-top: 5px;
+    color: white;
+    text-decoration: none;
+}
+.dropdown:hover .dropdown-menu{
+opacity: 1;
+visibility: visible;
+}
+
+/* ########################################################################### */
+/* Home sec */
+
+.home{
+    height: 100vh; /*to make the image size fill the monitor seen*/
+    background-image: url(../images/background/background1.webp);
+    background-size: cover; /* CSS3 prop to make the image fit the monitor size*/
+    position: relative;
+}
+.home-content{
+   position: absolute; /*to move w.r.t its parent*/
+   left: 50%; /*now we are making the hero image*/
+   top: 50%;
+   transform: translate(-50%,-50%);
+   text-align: center;
+   padding-top: 80px;
+}
+.home-text{
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    word-spacing: 15px;
+}
+.home-desc{
+    color: whitesmoke;
+    font-size: 15px;
+    line-height: 1.5;
+}
+.home-btn{
+    background: none;
+    border: none;
+    background-color: #6195ff;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    margin: 20px 15px;
+    font-size: 14px;
+    color: white;
+    opacity: 1;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.home-btn:hover {
+    opacity: 0.7;
+}
+.btn-left{
+    background-color: white;
+    color: #6195ff;
+}
+
+/* ############################################################################## */
+/* About sec */
+.about-item{
+    width: 29%;
+    float: left;
+    text-align: center;
+    border: 1px solid #e8e8e8;
+    padding: 20px 0;
+}
+.about-item .icon{
+    color: #6195ff;
+}
+.about-item-title{
+    font-size: 22px;
+    text-transform: capitalize;
+    color: black;
+    transition: color 0.5s;
+}
+.about-item-desc{
+    color: #999999;
+    line-height: 1.4;
+}
+.about-item-readmore{
+    color: #6195ff;
+    font-size: 16px;
+    text-transform: capitalize;
+}
+.about-item.mg{
+    margin: 0 5%;
+}
+.about-item-content{
+    padding: 15px 20px;
+}
+.about-item:hover .about-item-title{
+color: white;
+}
+/* ############################################################################### */
+/* Portofolio sec */
+.port-item{
+    height: 305px;
+    width: 29%;
+    float: left;
+    position: relative;
+}
+.port-item-img {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    left: 5%;
+    top: 5%;    
+}
+.port-item-img img{
+width: 100%;
+}
+.port-item-overlay{
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 10;
+}
+.port-item:hover .port-item-overlay{
+    width: 100%;
+}
+.port-item-content{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+}
+.port-item-title{
+    color: #6195ff;
+    font-size: 23px;
+    top: 15px;
+    position: relative; /*it is so imp but i do not know why?????*/
+    opacity: 0;
+    transition: top 0.5s, opacity 0.5s;
+    transition-delay: 0;
+    visibility: hidden;
+}
+.port-item:hover .port-item-title{
+    opacity: 1;
+    top: 0;
+    visibility: visible;
+} 
+.port-item-desc{
+    width: 100%;
+    color: white;
+    font-size: 25px;
+    opacity: 0;
+    position: relative;
+    top: 10px;
+    transition: top 0.5s, opacity 0.5s;
+    transition-delay: 0.5s;
+    visibility: hidden;
+}
+.port-item:hover .port-item-desc{
+    visibility: visible;
+    opacity: 1;
+    top: 0;
+} 
+.port-item-content a{
+    position: relative;
+    color: white;
+    background-color: #6195ff;
+    display: inline-block; /*to could give W& H*/
+    width: 40px;
+    height: 30px;
+    padding-top: 10px ;
+    opacity: 0;
+    top: 10px;
+    transition: top 0.5s, opacity 0.5s;
+    transition-delay: 0.5s;
+    visibility: hidden;
+}
+.port-item-content a.left{
+    margin-left: 15px;
+}
+.port-item:hover .port-item-content a{
+    visibility: visible;
+    opacity: 1;
+    top: 0;
+}
+.port-item.mg{
+    margin: 0 5%;
+}
+/* ################################################### */
+/* OFFER sec */
+.off-item{
+    width: 29%;
+    float: left;
+    border: 1px solid #e8e8e8;
+    position: relative;
+    margin-bottom: 30px;
+}
+.off-item-content{
+padding: 15px 20px 20px 70px;
+}
+.off-item-icon{
+    position: absolute;
+    left: 20px;
+    top: 25px;
+    color: #6195ff;
+    font-size: 30px;
+}
+.off-item-title{
+    color: black;
+    font-size: 24px;
+    text-transform: capitalize ;
+    transition: color 2s;
+}
+.off-item-desc{
+    color: #999999;
+}
+.off-item:hover .off-item-title{
+    color: white;
+} 
+.off-item.mg{
+    margin: 0 5%;
+}
+/* ################################################### */
+/*  services sec*/
+.serv-item{
+    width: 50%;
+    float: left;
+}
+.serv{
+    margin-top: 120px;
+    background-color: #f9f9f9;
+}
+.serv-item .header{
+    width: 100%;
+    text-align: left;
+    position: relative;
+    padding-bottom: 5px;
+    margin-bottom: 40px;
+}
+.serv-item .header .header-line{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    left: 17%;
+}
+.serv-item-img{
+    width: 90%;
+    margin:  50px auto 0 auto;
+}
+.serv-item-img img{
+    width: 100%;
+}
+.serv-list2{
+    margin-left: 190px;
+}
+.serv-list2 ul li{
+display: inline-block;
+background-color: #999999;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+}
+.serv-list2 ul .left{
+   background-color: #6195ff; 
+}
+.serv-list2 ul li:hover{
+    background-color: #6195ff;
+}
+.serv-item-desc{
+    color: #999999;
+    line-height: 1.5;
+    font-size: 18px;
+}
+.serv-list1 ul{
+list-style: none;
+}
+.serv-list1 li{
+    margin-bottom: 8px;
+    font-size: 18px;
+    color: #999999;
+}
+.serv-list1 li i{
+border: 2px solid #6195ff;
+padding: 5px;
+font-size: 15px;
+border-radius: 50%;
+color: #6195ff;
+margin-right: 15px;
+}
+/* ################################################## */
+/*  Number section*/
+.num{
+    margin-top: 100px;
+}
+.num-content{
+    position: relative;
+    background-attachment: fixed;  
+    background-size: cover;
+    background-image: url("../images/background/background2.webp");
+    width: 100%;
+    height: 300px;
+}
+.num-item{
+width: 25%;
+float: left;
+text-align: center;
+color: #6195ff;
+font-size: 20px;
+}
+.num-content-opt{
+    position: absolute;
+    width: 80%;
+    margin: auto;
+    left: 140px;
+    top: 130px;
+}
+.num-item h3{
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+.num-item p{
+    color: white;
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-top: -20px;
+}
+/* #################################################### */
+/* Prcing sec */
+.pric-item{
+    width: 28%;
+    border: 1px solid #e8e8e8;
+    float: left;
+    text-align: center;
+    padding: 20px 10px;
+}
+.pric-item-title{
+    color: #999999;
+    text-transform: capitalize;
+    font-size: 21px;
+    transition: color 0.5s;
+}
+.pric-item-cost{
+    margin: auto;
+    width: 90px;
+    height: 90px;
+    border: 2px solid #6195ff;
+    border-radius: 50%;
+    transition: color 0.5s;
+}
+.pric-item-fee{
+    font-size: 28px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+.pric-item-mon{
+    margin: -28px;
+    font-size: 19px;
+}
+.price-item-lines{
+    color: #999999;
+font-size: 18px;
+text-transform: capitalize;
+}
+.pric-item-btn{
+background: none;
+border: none;
+background-color: #6195ff;
+border-radius: 3px;
+font-size: 18px;
+height: 40px;
+width: 170px;
+text-transform: capitalize;
+margin-top: 10px;
+color: white;
+}
+.pric-item:hover .pric-item-title{
+    color: #6195ff;
+} 
+.pric-item:hover .pric-item-cost{
+color: white;
+}
+.pric-item.mg{
+    margin: 0 4%;
+}
+/* ##################################################### */
+/*     <!--  Testimonial sec -->  */
+.tes{
+    margin-top: 140px;
+    margin-bottom: 100px;
+}
+.tes-opt{
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url(../images/background/background3.webp);
+    position: relative;
+}
+.tes .container{
+    width: 60%;
+    margin: auto;
+    padding-top: 70px;
+}
+.tes-item{
+    float: left;
+    width: 45%;
+    position: relative;
+}
+.tes-item-content{
+    position: absolute;
+    left: 90px;
+    top: -10px;
+}
+.tes-item-title{
+    font-size: 20px;
+    color: white;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+.tes-item-job{
+    margin-top: -15px;
+    color: #6195ff;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+.tes-item-img img{
+    border-radius: 50%;
+}
+.tes-item-des{
+    font-size: 18px;
+    color: #999999;
+    line-height: 1.3;
+}
+.tes-item.mg{
+    margin-left: 10%;
+}
+/* ###################################################### */
+/* Team sec */
+.team-item{
+    float: left;
+    width: 29%;
+    position: relative;
+    height: 330px;
+}
+.team-item-fram{
+    position: absolute;
+    background-color: #999999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -10;
+}
+.team-item-img{
+    position: absolute;
+    width: 80%;
+    height: 65%;
+    left: 10%;
+    top: 10%;
+    z-index: -5;
+}
+.team-item-img img{
+    width: 100%;
+}
+.team-item-content{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    z-index: 1;
+    
+}
+.team-item-title{
+    font-size: 20px;
+    color: black;
+    text-transform: capitalize;
+    font-weight: bold;
+    transition: color 1.1s;
+}
+.team-item-job{
+    margin-top: -15px;
+    color: white;
+    font-size: 18px;
+    text-transform: capitalize;
+    transition: color 1.1s;
+}
+.team-item-link{
+    position: absolute;
+    right: 10%;
+    top: 10%;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.team-item-link a{
+    display: block;
+    color: white;
+    background-color: #6195ff;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+}
+.team-item-link a i{
+    line-height: 40px; /*very helpful*/
+}
+.team-item:hover .team-item-title{
+    color: white;
+}
+.team-item:hover .team-item-job{
+    color: #6195ff;
+}
+.team-item.mg{
+    margin: 0 5%;
+}
+.team-item:hover .team-item-link{
+    visibility: visible;
+    opacity: 1;
+}
+/* ################################################## */
+/*  Blog Sec  */
+.blog-item{
+    float: left;
+    width: 30%;
+    text-align: center;
+}
+.blog-item-img{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.blog-item-img img{
+    width: 100%;
+}
+.blog-item-date{
+    color: #6195ff;
+    font: 18px;
+}
+.blog-item-date i{
+    margin: 0 15px;
+}
+.blog-item-title{
+    font-size: 17px;
+}
+.blog-item-desc{
+    font-size: 18px;
+    color: #999999;
+    line-height: 1.4;
+    padding: 0 20px;
+}
+.blog-item-more{
+    color:#6195ff;
+    font-size: 18px;
+    text-transform: capitalize; 
+    text-align: left;
+    padding: 0 24px;
+}
+.blog-item.mg{
+    margin: 0 5%;
+}
+/* ##################################################### */
+/* CONTACT sec */
+.cont-item1{
+    float: left;
+    width: 30%;
+}
+.cont .container{
+    width: 70%;
+    margin: auto;
+    padding-left: 90px;
+}
+.cont-item1{
+    text-align: center;
+}
+.cont-item1 i{
+    color: #6195ff;
+    font-size: 28px;
+}
+.cont-item1-title {
+    font-size: 20px;
+    font-weight: bolder;
+}
+.cont-item1-phone{
+    color: #999999;
+}
+.cont-item2{
+    float: left;
+    width: 50%;
+    margin-top: 30px;
+}
+.cont-item2 form input{
+    display: block;
+    width: 70%;
+    margin-left: 25%;
+    height: 33px;
+    margin-bottom: 5px;
+    background-color: #e8e8e8;
+    border: none;
+    border-radius: 3px;
+}
+.cont-item2 input{
+    display: block;
+    width: 70%;
+    margin-left: 5%;
+    height: 33px;
+    margin-bottom: 5px;
+    background-color: #e8e8e8;
+    border: none;
+    border-radius: 3px;
+    padding-left: 25px;
+}
+.cont-item3{
+    margin-top: 40px;
+    text-align: center;
+}
+.cont-item3 button{
+    background: none;
+    border: none;
+    background-color: #6195ff;
+    width: 120px;
+    height: 35px;
+    border-radius: 5px;
+    color: white;
+}
+
+/* ##################################################### */
+/* Footer sec */
+.foot{
+background-color: #1c1d21;
+width: 100%;
+height: 300px;
+text-align: center;
+margin-top: 80px;
+}
+.foot-img{
+    padding-top: 70px;
+    margin-bottom: 10px;
+}
+
+.foot-icons a{
+    color: white;
+    margin-right: 15px;
+}
+.foot-icons a i{
+    background-color: #6195ff;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+}
+.foot-icons a i{
+    line-height: 50px;
+}
+.foot-copy{
+    margin-top: 20px;
+    color: #999999;
+}
+/* ######################################################## */
