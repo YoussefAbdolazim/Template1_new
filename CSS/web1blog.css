@@ -168,9 +168,9 @@ width: 100%;
 .cont-inf input[type="text"]{
     border: none;
     background: none;
-    background-image: url('searchicon.png');
+    background-image: url("../searchicon.png");
     background-size: 40px;
-    background-position: -10px -10px;
+    background-position: 210px;
     background-repeat: no-repeat;
     padding-left: 25px;
     width: 100%;
